@@ -10,7 +10,7 @@ import java.util.List;
  */
 public interface UserService {
 
-    void register(User user);
+    Integer register(User user);
 
     void remove(Integer userId);
 

@@ -8,9 +8,18 @@ import com.epam.spring.core.domain.enums.UserRole;
  */
 public class User {
 
+    private Integer id;
     private String name;
     private String email;
     private UserRole role;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;
@@ -35,4 +44,5 @@ public class User {
     public void setRole(UserRole role) {
         this.role = role;
     }
+
 }

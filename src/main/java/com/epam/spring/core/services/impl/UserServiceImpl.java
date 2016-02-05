@@ -17,10 +17,10 @@ import java.util.List;
 public class UserServiceImpl implements UserService {
 
     @Autowired
-    private UserDao dao;
+    private UserDao userDao;
 
-    public void register(User user) {
-
+    public Integer register(User user) {
+        return userDao.register(user);
     }
 
     public void remove(Integer userId) {

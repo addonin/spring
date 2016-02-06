@@ -1,18 +1,19 @@
 package com.epam.spring.core.services;
 
+import com.epam.spring.core.domain.Ticket;
 import com.epam.spring.core.domain.User;
-import sun.security.krb5.internal.Ticket;
 
 import java.util.List;
 
 /**
- * Created by Dmytro_Adonin on 2/5/2016.
+ * @author Dmytro_Adonin
+ * @since 2/5/2016.
  */
 public interface UserService {
 
     Integer register(User user);
 
-    void remove(Integer userId);
+    boolean remove(Integer userId);
 
     User getById(Integer id);
 

@@ -2,6 +2,8 @@ package com.epam.spring.core.domain;
 
 import com.epam.spring.core.domain.enums.UserRole;
 
+import java.util.List;
+
 /**
  * @author Dmytro_Adonin
  * @since 2/5/2016.
@@ -12,6 +14,7 @@ public class User {
     private String name;
     private String email;
     private UserRole role;
+    private List<Ticket> tickets;
 
     public Integer getId() {
         return id;
@@ -45,4 +48,11 @@ public class User {
         this.role = role;
     }
 
+    public List<Ticket> getTickets() {
+        return tickets;
+    }
+
+    public void setTickets(List<Ticket> tickets) {
+        this.tickets = tickets;
+    }
 }

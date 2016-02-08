@@ -1,7 +1,8 @@
 package com.epam.spring.core.services;
 
-import com.epam.spring.core.domain.Event;
 import com.epam.spring.core.domain.Auditorium;
+import com.epam.spring.core.domain.Event;
+import com.epam.spring.core.domain.Movie;
 
 import java.time.Instant;
 import java.util.List;
@@ -12,18 +13,18 @@ import java.util.List;
  */
 public interface EventService {
 
-    void create(Event event);
+    Integer create(Movie movie);
 
-    void remove(Event event);
+    boolean remove(Integer eventId);
 
-    Event getByName();
+    Event getById(Integer eventId);
 
     List<Event> getAll();
 
-    List<Event> getForDateRange(Instant from, Instant to);
+    //List<Event> getForDateRange(Instant from, Instant to);
 
-    List<Event> getEventsTo(Instant to);
+    //List<Event> getEventsTo(Instant to);
 
-    void assignAuditorium(Event event, Auditorium auditorium, Instant date);
+    boolean assignAuditorium(Integer eventId, Auditorium auditorium, Instant datetime);
 
 }

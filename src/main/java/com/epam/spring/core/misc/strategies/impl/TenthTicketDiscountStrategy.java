@@ -1,5 +1,7 @@
 package com.epam.spring.core.misc.strategies.impl;
 
+import com.epam.spring.core.domain.Event;
+import com.epam.spring.core.domain.User;
 import com.epam.spring.core.misc.strategies.DiscountStrategy;
 
 /**
@@ -8,8 +10,8 @@ import com.epam.spring.core.misc.strategies.DiscountStrategy;
  */
 public class TenthTicketDiscountStrategy implements DiscountStrategy {
 
-    public float calculateDiscount() {
-        return 0;
+    @Override
+    public float calculateDiscount(User user, Event event) {
+        return 5;
     }
-
 }

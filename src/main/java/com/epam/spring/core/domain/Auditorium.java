@@ -8,31 +8,35 @@ import java.util.List;
  */
 public class Auditorium {
 
+    private Integer id;
     private String name;
-    private int number;
-    private List<Integer> vip;
+    private int seatsNumber;
+    private List<Integer> vipSeats;
+
+    public Auditorium(String name, int seatsNumber, List<Integer> vipSeats) {
+        this.name = name;
+        this.seatsNumber = seatsNumber;
+        this.vipSeats = vipSeats;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public int getSeatsNumber() {
+        return seatsNumber;
     }
 
-    public int getNumber() {
-        return number;
+    public List<Integer> getVipSeats() {
+        return vipSeats;
     }
 
-    public void setNumber(int number) {
-        this.number = number;
-    }
-
-    public List<Integer> getVip() {
-        return vip;
-    }
-
-    public void setVip(List<Integer> vip) {
-        this.vip = vip;
-    }
 }

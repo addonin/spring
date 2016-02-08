@@ -12,8 +12,8 @@ public interface AuditoriumService {
 
     List<Auditorium> getAuditoriums();
 
-    int getSeatsNumber();
+    Integer getSeatsNumber(Integer auditoriumId);
 
-    List<Integer> getVipSeats();
+    List<Integer> getVipSeats(Integer auditoriumId);
 
 }

@@ -1,6 +1,7 @@
 package com.epam.spring.core.domain;
 
-import com.epam.spring.core.domain.enums.EventRating;
+import java.time.Instant;
+import java.util.Set;
 
 /**
  * @author Dmytro_Adonin
@@ -8,31 +9,53 @@ import com.epam.spring.core.domain.enums.EventRating;
  */
 public class Event {
 
-    private String name;
-    private double price;
-    private EventRating rating;
+    private Integer id;
+    private Movie movie;
+    private Auditorium auditorium;
+    private Instant startDateTime;
+    private Set<Ticket> tickets;
 
-    public String getName() {
-        return name;
+    public Event(Movie movie) {
+        this.movie = movie;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public Integer getId() {
+        return id;
     }
 
-    public double getPrice() {
-        return price;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public void setPrice(double price) {
-        this.price = price;
+    public Movie getMovie() {
+        return movie;
     }
 
-    public EventRating getRating() {
-        return rating;
+    public void setMovie(Movie movie) {
+        this.movie = movie;
     }
 
-    public void setRating(EventRating rating) {
-        this.rating = rating;
+    public Auditorium getAuditorium() {
+        return auditorium;
+    }
+
+    public void setAuditorium(Auditorium auditorium) {
+        this.auditorium = auditorium;
+    }
+
+    public Instant getStartDateTime() {
+        return startDateTime;
+    }
+
+    public void setStartDateTime(Instant startDateTime) {
+        this.startDateTime = startDateTime;
+    }
+
+    public Set<Ticket> getTickets() {
+        return tickets;
+    }
+
+    public void setTickets(Set<Ticket> tickets) {
+        this.tickets = tickets;
     }
 }

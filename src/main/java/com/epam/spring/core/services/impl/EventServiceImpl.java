@@ -1,8 +1,10 @@
 package com.epam.spring.core.services.impl;
 
 import com.epam.spring.core.dao.EventDao;
-import com.epam.spring.core.domain.Event;
 import com.epam.spring.core.domain.Auditorium;
+import com.epam.spring.core.domain.Event;
+import com.epam.spring.core.domain.Movie;
+import com.epam.spring.core.services.AuditoriumService;
 import com.epam.spring.core.services.EventService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,33 +20,44 @@ import java.util.List;
 public class EventServiceImpl implements EventService {
 
     @Autowired
-    private EventDao dao;
+    private AuditoriumService auditoriumService;
 
-    public void create(Event event) {
+    @Autowired
+    private EventDao eventDao;
 
+    @Override
+    public Integer create(Movie movie) {
+        return eventDao.create(new Event(movie));
     }
 
-    public void remove(Event event) {
-
+    @Override
+    public boolean remove(Integer eventId) {
+        return eventDao.remove(eventId);
     }
 
-    public Event getByName() {
-        return null;
+    @Override
+    public Event getById(Integer eventId) {
+        return eventDao.getById(eventId);
     }
 
+    @Override
     public List<Event> getAll() {
-        return null;
+        return eventDao.getAll();
     }
 
-    public List<Event> getForDateRange(Instant from, Instant to) {
-        return null;
+    @Override
+    public boolean assignAuditorium(Integer eventId, Auditorium auditorium, Instant datetime) {
+        for (Event event : getAll()) {
+            if (auditorium.equals(event.getAuditorium())
+                    //&& Period.event.getStartDateTime(). + event.getMovie().getDuration()
+            ) {
+                return false;
+            }
+        }
+        Event currentEvent = getById(eventId);
+        currentEvent.setAuditorium(auditorium);
+        currentEvent.setStartDateTime(datetime);
+        return true;
     }
 
-    public List<Event> getEventsTo(Instant to) {
-        return null;
-    }
-
-    public void assignAuditorium(Event event, Auditorium auditorium, Instant date) {
-
-    }
 }

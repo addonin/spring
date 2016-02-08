@@ -16,17 +16,20 @@ import java.util.List;
 public class AuditoriumServiceImpl implements AuditoriumService {
 
     @Autowired
-    private AuditoriumDao dao;
+    private AuditoriumDao auditoriumDao;
 
+    @Override
     public List<Auditorium> getAuditoriums() {
-        return null;
+        return auditoriumDao.getAuditoriums();
     }
 
-    public int getSeatsNumber() {
-        return 0;
+    @Override
+    public Integer getSeatsNumber(Integer auditoriumId) {
+        return auditoriumDao.getSeatsNumber(auditoriumId);
     }
 
-    public List<Integer> getVipSeats() {
-        return null;
+    @Override
+    public List<Integer> getVipSeats(Integer auditoriumId) {
+        return auditoriumDao.getVipSeats(auditoriumId);
     }
 }

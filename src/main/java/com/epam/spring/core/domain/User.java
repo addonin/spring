@@ -2,6 +2,7 @@ package com.epam.spring.core.domain;
 
 import com.epam.spring.core.domain.enums.UserRole;
 
+import java.time.Instant;
 import java.util.List;
 
 /**
@@ -11,9 +12,10 @@ import java.util.List;
 public class User {
 
     private Integer id;
+    private UserRole role;
     private String name;
     private String email;
-    private UserRole role;
+    private Instant birthday;
     private List<Ticket> tickets;
 
     public Integer getId() {
@@ -22,6 +24,14 @@ public class User {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public UserRole getRole() {
+        return role;
+    }
+
+    public void setRole(UserRole role) {
+        this.role = role;
     }
 
     public String getName() {
@@ -40,12 +50,12 @@ public class User {
         this.email = email;
     }
 
-    public UserRole getRole() {
-        return role;
+    public Instant getBirthday() {
+        return birthday;
     }
 
-    public void setRole(UserRole role) {
-        this.role = role;
+    public void setBirthday(Instant birthday) {
+        this.birthday = birthday;
     }
 
     public List<Ticket> getTickets() {
@@ -55,4 +65,5 @@ public class User {
     public void setTickets(List<Ticket> tickets) {
         this.tickets = tickets;
     }
+
 }

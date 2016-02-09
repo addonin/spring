@@ -2,10 +2,10 @@ package com.epam.spring.core.domain.enums;
 
 /**
  * @author Dmytro_Adonin
- * @since 2/5/2016.
+ * @since 2/9/2016.
  */
-public enum TicketState {
+public enum SeatStatus {
 
-    FREE, RESERVED, SOLD
+    STANDARD, VIP
 
 }

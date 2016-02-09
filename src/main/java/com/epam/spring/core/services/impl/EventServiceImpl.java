@@ -1,16 +1,17 @@
 package com.epam.spring.core.services.impl;
 
 import com.epam.spring.core.dao.EventDao;
-import com.epam.spring.core.domain.Auditorium;
-import com.epam.spring.core.domain.Event;
-import com.epam.spring.core.domain.Movie;
-import com.epam.spring.core.services.AuditoriumService;
+import com.epam.spring.core.domain.*;
+import com.epam.spring.core.domain.enums.SeatStatus;
+import com.epam.spring.core.domain.enums.TicketState;
 import com.epam.spring.core.services.EventService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.time.Instant;
+import java.time.Duration;
+import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Set;
 
 /**
  * @author Dmytro_Adonin
@@ -18,9 +19,6 @@ import java.util.List;
  */
 @Service
 public class EventServiceImpl implements EventService {
-
-    @Autowired
-    private AuditoriumService auditoriumService;
 
     @Autowired
     private EventDao eventDao;
@@ -46,18 +44,37 @@ public class EventServiceImpl implements EventService {
     }
 
     @Override
-    public boolean assignAuditorium(Integer eventId, Auditorium auditorium, Instant datetime) {
+    public boolean assignAuditorium(Integer eventId, Auditorium auditorium, LocalDateTime datetime) {
         for (Event event : getAll()) {
-            if (auditorium.equals(event.getAuditorium())
-                    //&& Period.event.getStartDateTime(). + event.getMovie().getDuration()
-            ) {
+            if (auditorium.equals(event.getAuditorium()) && intersectsWithAnotherEvent(event, datetime)) {
                 return false;
             }
         }
         Event currentEvent = getById(eventId);
         currentEvent.setAuditorium(auditorium);
         currentEvent.setStartDateTime(datetime);
+        setTickets(currentEvent, auditorium);
         return true;
+    }
+
+    private boolean intersectsWithAnotherEvent(Event event, LocalDateTime toCheck) {
+        LocalDateTime start = event.getStartDateTime();
+        Duration duration = event.getMovie().getDuration();
+        LocalDateTime end = start.plus(duration);
+        return !toCheck.isBefore(start) && !toCheck.isAfter(end);
+    }
+
+    private void setTickets(Event currentEvent, Auditorium auditorium) {
+        Set<Ticket> tickets = currentEvent.getTickets();
+        Integer seatsNumber = auditorium.getSeatsNumber();
+        List<Integer> vipSeats = auditorium.getVipSeats();
+        for (int i = 1; i <= seatsNumber; i++) {
+            Ticket ticket = new Ticket();
+            ticket.setEventId(currentEvent.getId());
+            ticket.setState(TicketState.FREE);
+            ticket.setSeat(new Seat(i, vipSeats.contains(i) ? SeatStatus.VIP : SeatStatus.STANDARD));
+            tickets.add(ticket);
+        }
     }
 
 }

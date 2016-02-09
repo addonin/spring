@@ -46,7 +46,7 @@ public class SimpleEventDao implements EventDao {
     }
 
     private int generateId() {
-        return counter++;
+        return ++counter;
     }
 
 }

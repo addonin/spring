@@ -1,6 +1,7 @@
 package com.epam.spring.core.domain;
 
-import java.time.Instant;
+import java.time.LocalDateTime;
+import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -12,8 +13,8 @@ public class Event {
     private Integer id;
     private Movie movie;
     private Auditorium auditorium;
-    private Instant startDateTime;
-    private Set<Ticket> tickets;
+    private LocalDateTime startDateTime;
+    private Set<Ticket> tickets = new HashSet<>();
 
     public Event(Movie movie) {
         this.movie = movie;
@@ -43,11 +44,11 @@ public class Event {
         this.auditorium = auditorium;
     }
 
-    public Instant getStartDateTime() {
+    public LocalDateTime getStartDateTime() {
         return startDateTime;
     }
 
-    public void setStartDateTime(Instant startDateTime) {
+    public void setStartDateTime(LocalDateTime startDateTime) {
         this.startDateTime = startDateTime;
     }
 
@@ -58,4 +59,31 @@ public class Event {
     public void setTickets(Set<Ticket> tickets) {
         this.tickets = tickets;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Event event = (Event) o;
+
+        if (id != null ? !id.equals(event.id) : event.id != null) return false;
+        if (movie != null ? !movie.equals(event.movie) : event.movie != null) return false;
+        if (auditorium != null ? !auditorium.equals(event.auditorium) : event.auditorium != null) return false;
+        if (startDateTime != null ? !startDateTime.equals(event.startDateTime) : event.startDateTime != null)
+            return false;
+        return tickets != null ? tickets.equals(event.tickets) : event.tickets == null;
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = id != null ? id.hashCode() : 0;
+        result = 31 * result + (movie != null ? movie.hashCode() : 0);
+        result = 31 * result + (auditorium != null ? auditorium.hashCode() : 0);
+        result = 31 * result + (startDateTime != null ? startDateTime.hashCode() : 0);
+        result = 31 * result + (tickets != null ? tickets.hashCode() : 0);
+        return result;
+    }
 }
+

@@ -58,7 +58,7 @@ public class SimpleUserDao implements UserDao {
     }
 
     private int generateId() {
-        return counter++;
+        return ++counter;
     }
 
 }

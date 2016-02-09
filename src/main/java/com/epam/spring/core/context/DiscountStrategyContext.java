@@ -8,6 +8,6 @@ import org.springframework.context.annotation.Configuration;
  * @since 2/5/2016.
  */
 @Configuration
-@ComponentScan({"com.epam.spring.core.misc.strategies."})
+@ComponentScan({"com.epam.spring.core.misc.strategies.impl"})
 public class DiscountStrategyContext {
 }

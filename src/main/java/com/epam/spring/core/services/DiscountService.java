@@ -11,6 +11,4 @@ public interface DiscountService {
 
     float getDiscount(User user, Event event);
 
-
-
 }

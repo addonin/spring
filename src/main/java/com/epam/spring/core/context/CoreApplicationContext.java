@@ -1,9 +1,6 @@
 package com.epam.spring.core.context;
 
 import com.epam.spring.core.domain.Auditorium;
-import com.epam.spring.core.misc.strategies.DiscountStrategy;
-import com.epam.spring.core.misc.strategies.impl.BirthdayDiscountStrategy;
-import com.epam.spring.core.misc.strategies.impl.TenthTicketDiscountStrategy;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.*;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
@@ -52,16 +49,6 @@ public class CoreApplicationContext {
     @Bean
     public Auditorium auditorium2() {
         return new Auditorium(auditorium2name, auditorium2seats, auditorium2vips);
-    }
-
-    @Bean
-    public DiscountStrategy birthdayDiscountStrategy() {
-        return new BirthdayDiscountStrategy();
-    }
-
-    @Bean
-    public DiscountStrategy tenthTicketDiscountStrategy() {
-        return new TenthTicketDiscountStrategy();
     }
 
 }

@@ -65,4 +65,30 @@ public class Movie {
         this.basePrice = basePrice;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Movie movie = (Movie) o;
+
+        if (id != null ? !id.equals(movie.id) : movie.id != null) return false;
+        if (name != null ? !name.equals(movie.name) : movie.name != null) return false;
+        if (description != null ? !description.equals(movie.description) : movie.description != null) return false;
+        if (duration != null ? !duration.equals(movie.duration) : movie.duration != null) return false;
+        if (rating != movie.rating) return false;
+        return basePrice != null ? basePrice.equals(movie.basePrice) : movie.basePrice == null;
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = id != null ? id.hashCode() : 0;
+        result = 31 * result + (name != null ? name.hashCode() : 0);
+        result = 31 * result + (description != null ? description.hashCode() : 0);
+        result = 31 * result + (duration != null ? duration.hashCode() : 0);
+        result = 31 * result + (rating != null ? rating.hashCode() : 0);
+        result = 31 * result + (basePrice != null ? basePrice.hashCode() : 0);
+        return result;
+    }
 }

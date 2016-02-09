@@ -11,10 +11,10 @@ import java.util.List;
  */
 public interface BookingService {
 
-    float getTicketPrice(Integer eventId, List<Integer>seats, User watcher);
+    float getTicketPrice(User watcher, Integer eventId, Integer seat);
 
-    void bookTicket(User watcher, Ticket ticket);
+    List<Ticket> bookTickets(User watcher, Integer eventId, List<Integer> places);
 
-    List<Ticket> getTicketsForEvent(Integer eventId);
+    List<Ticket> getSoldTicketsForEvent(Integer eventId);
 
 }

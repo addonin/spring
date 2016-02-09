@@ -4,7 +4,7 @@ import com.epam.spring.core.domain.Auditorium;
 import com.epam.spring.core.domain.Event;
 import com.epam.spring.core.domain.Movie;
 
-import java.time.Instant;
+import java.time.LocalDateTime;
 import java.util.List;
 
 /**
@@ -25,6 +25,6 @@ public interface EventService {
 
     //List<Event> getEventsTo(Instant to);
 
-    boolean assignAuditorium(Integer eventId, Auditorium auditorium, Instant datetime);
+    boolean assignAuditorium(Integer eventId, Auditorium auditorium, LocalDateTime datetime);
 
 }

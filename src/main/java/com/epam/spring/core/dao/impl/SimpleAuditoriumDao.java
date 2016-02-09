@@ -49,6 +49,6 @@ public class SimpleAuditoriumDao implements AuditoriumDao {
     }
 
     private int generateId() {
-        return counter++;
+        return ++counter;
     }
 }

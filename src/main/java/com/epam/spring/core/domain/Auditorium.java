@@ -39,4 +39,26 @@ public class Auditorium {
         return vipSeats;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Auditorium that = (Auditorium) o;
+
+        if (id != null ? !id.equals(that.id) : that.id != null) return false;
+        if (name != null ? !name.equals(that.name) : that.name != null) return false;
+        if (seatsNumber != null ? !seatsNumber.equals(that.seatsNumber) : that.seatsNumber != null) return false;
+        return vipSeats != null ? vipSeats.equals(that.vipSeats) : that.vipSeats == null;
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = id != null ? id.hashCode() : 0;
+        result = 31 * result + (name != null ? name.hashCode() : 0);
+        result = 31 * result + (seatsNumber != null ? seatsNumber.hashCode() : 0);
+        result = 31 * result + (vipSeats != null ? vipSeats.hashCode() : 0);
+        return result;
+    }
 }

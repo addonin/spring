@@ -1,6 +1,5 @@
 package com.epam.spring.core.services.impl;
 
-import com.epam.spring.core.context.CoreApplicationContext;
 import com.epam.spring.core.context.TestCoreApplicationContext;
 import com.epam.spring.core.dao.UserDao;
 import com.epam.spring.core.domain.Ticket;
@@ -10,8 +9,8 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
-import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -20,21 +19,19 @@ import java.util.Collections;
 import java.util.List;
 
 import static org.junit.Assert.*;
-import static org.mockito.Mockito.doReturn;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.*;
 
 /**
  * @author Dmytro_Adonin
  * @since 2/5/2016.
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = {CoreApplicationContext.class, TestCoreApplicationContext.class})
+@ContextConfiguration(classes = {TestCoreApplicationContext.class})
 public class UserServiceImplTest {
 
     private User user;
 
-    @Mock
+    @Autowired
     private UserDao userDaoMock;
 
     @InjectMocks

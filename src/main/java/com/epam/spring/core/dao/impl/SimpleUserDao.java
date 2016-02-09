@@ -43,19 +43,13 @@ public class SimpleUserDao implements UserDao {
     @Override
     public User getUserByEmail(String email) {
         //TODO check email not null
-        return users.entrySet().stream().map(entry -> {
-                    User currentUser = entry.getValue();
-                    return email.equals(currentUser.getEmail()) ? currentUser : null;
-                }).findFirst().get();
+        return users.values().stream().map(user -> email.equals(user.getEmail()) ? user : null).findFirst().get();
     }
 
     @Override
     public List<User> getUserByName(String name) {
         //TODO check name not null
-        return users.entrySet().stream().map(entry -> {
-                    User currentUser = entry.getValue();
-                    return name.equals(currentUser.getName()) ? currentUser : null;
-                }).collect(Collectors.toList());
+        return users.values().stream().map(user -> name.equals(user.getName()) ? user : null).collect(Collectors.toList());
     }
 
     @Override

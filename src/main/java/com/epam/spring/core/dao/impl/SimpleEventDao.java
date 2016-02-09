@@ -2,6 +2,7 @@ package com.epam.spring.core.dao.impl;
 
 import com.epam.spring.core.dao.EventDao;
 import com.epam.spring.core.domain.Event;
+import com.epam.spring.core.domain.Movie;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
@@ -21,7 +22,8 @@ public class SimpleEventDao implements EventDao {
     private Map<Integer, Event> events = new HashMap<>();
 
     @Override
-    public Integer create(Event event) {
+    public Integer create(Movie movie) {
+        Event event = new Event(movie);
         int id = generateId();
         event.setId(id);
         events.put(id, event);

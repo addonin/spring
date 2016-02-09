@@ -1,6 +1,7 @@
 package com.epam.spring.core.dao;
 
 import com.epam.spring.core.domain.Event;
+import com.epam.spring.core.domain.Movie;
 
 import java.util.List;
 
@@ -10,7 +11,7 @@ import java.util.List;
  */
 public interface EventDao {
 
-    Integer create(Event event);
+    Integer create(Movie movie);
 
     boolean remove(Integer eventId);
 

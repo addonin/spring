@@ -17,9 +17,8 @@ import java.util.List;
 @Configuration
 @Import({DiscountStrategyContext.class})
 @ComponentScan({"com.epam.spring.core.services", "com.epam.spring.core.dao"})
-@PropertySources({
-        @PropertySource(name="auditorium1properties", value = "classpath:auditorium1.properties"),
-        @PropertySource(name="auditorium2properties", value = "classpath:auditorium2.properties")})
+@PropertySource(name="auditorium1properties", value = "classpath:auditorium1.properties")
+@PropertySource(name="auditorium2properties", value = "classpath:auditorium2.properties")
 public class CoreApplicationContext {
 
     @Bean

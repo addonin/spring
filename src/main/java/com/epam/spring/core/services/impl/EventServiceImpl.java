@@ -27,7 +27,7 @@ public class EventServiceImpl implements EventService {
 
     @Override
     public Integer create(Movie movie) {
-        return eventDao.create(new Event(movie));
+        return eventDao.create(movie);
     }
 
     @Override

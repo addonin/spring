@@ -10,10 +10,10 @@ public class Auditorium {
 
     private Integer id;
     private String name;
-    private int seatsNumber;
+    private Integer seatsNumber;
     private List<Integer> vipSeats;
 
-    public Auditorium(String name, int seatsNumber, List<Integer> vipSeats) {
+    public Auditorium(String name, Integer seatsNumber, List<Integer> vipSeats) {
         this.name = name;
         this.seatsNumber = seatsNumber;
         this.vipSeats = vipSeats;
@@ -31,7 +31,7 @@ public class Auditorium {
         return name;
     }
 
-    public int getSeatsNumber() {
+    public Integer getSeatsNumber() {
         return seatsNumber;
     }
 

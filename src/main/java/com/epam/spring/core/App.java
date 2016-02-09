@@ -1,7 +1,6 @@
 package com.epam.spring.core;
 
 import com.epam.spring.core.context.CoreApplicationContext;
-import com.epam.spring.core.domain.Auditorium;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 /**
@@ -14,7 +13,6 @@ public class App {
         AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext();
         ctx.register(CoreApplicationContext.class);
         ctx.refresh();
-        ctx.getBean("auditorium1", Auditorium.class);
     }
 
 }

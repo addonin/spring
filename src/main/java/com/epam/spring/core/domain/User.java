@@ -18,6 +18,7 @@ public class User {
     private String email;
     private Instant birthday;
     private List<Ticket> tickets = new ArrayList<>();
+    private boolean lucky;
 
     public Integer getId() {
         return id;
@@ -67,6 +68,14 @@ public class User {
         this.tickets = tickets;
     }
 
+    public boolean isLucky() {
+        return lucky;
+    }
+
+    public void setLucky(boolean lucky) {
+        this.lucky = lucky;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -74,6 +83,7 @@ public class User {
 
         User user = (User) o;
 
+        if (lucky != user.lucky) return false;
         if (id != null ? !id.equals(user.id) : user.id != null) return false;
         if (role != user.role) return false;
         if (name != null ? !name.equals(user.name) : user.name != null) return false;
@@ -91,6 +101,7 @@ public class User {
         result = 31 * result + (email != null ? email.hashCode() : 0);
         result = 31 * result + (birthday != null ? birthday.hashCode() : 0);
         result = 31 * result + (tickets != null ? tickets.hashCode() : 0);
+        result = 31 * result + (lucky ? 1 : 0);
         return result;
     }
 }

@@ -2,15 +2,21 @@ package com.epam.spring.core.domain;
 
 import com.epam.spring.core.domain.enums.TicketState;
 
+import javax.persistence.Embeddable;
+import javax.persistence.Embedded;
+import javax.persistence.Entity;
+
 /**
  * @author Dmytro_Adonin
  * @since 2/5/2016.
  */
+@Embeddable
 public class Ticket {
 
     private Integer id;
     private Integer eventId;
     private Integer clientId;
+    @Embedded
     private Seat seat;
     private TicketState state;
     private Float price;

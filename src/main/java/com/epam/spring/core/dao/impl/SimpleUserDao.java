@@ -54,7 +54,7 @@ public class SimpleUserDao implements UserDao {
 
     @Override
     public List<Ticket> getBookedTickets(Integer userId) {
-        return users.get(userId).getTickets();
+        return null;//users.get(userId).getTickets();
     }
 
     private int generateId() {

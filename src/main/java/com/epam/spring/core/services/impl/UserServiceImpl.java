@@ -5,7 +5,9 @@ import com.epam.spring.core.domain.Ticket;
 import com.epam.spring.core.domain.User;
 import com.epam.spring.core.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -17,9 +19,11 @@ import java.util.List;
 public class UserServiceImpl implements UserService {
 
     @Autowired
+    @Qualifier("hibernateUserDao")
     private UserDao userDao;
 
     @Override
+    @Transactional
     public Integer register(User user) {
         return userDao.register(user);
     }
@@ -30,6 +34,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    @Transactional
     public User getById(Integer id) {
         return userDao.getById(id);
     }

@@ -12,7 +12,7 @@ import java.util.List;
  * @since 2/5/2016.
  */
 @Configuration
-@Import({DiscountStrategyContext.class})
+@Import({DatabaseApplicationContext.class, DiscountStrategyContext.class})
 @ComponentScan({"com.epam.spring.core.aop", "com.epam.spring.core.services", "com.epam.spring.core.dao"})
 @PropertySource(name="auditorium1properties", value = "classpath:auditorium1.properties")
 @PropertySource(name="auditorium2properties", value = "classpath:auditorium2.properties")

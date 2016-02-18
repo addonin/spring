@@ -112,7 +112,7 @@ public class UserServiceImplTest {
         Integer id = 1;
         user.setId(id);
         List<Ticket> tickets = new ArrayList<>(Collections.singletonList(new Ticket()));
-        user.setTickets(tickets);
+        //user.setTickets(tickets);
         doReturn(tickets).when(userDaoMock).getBookedTickets(id);
 
         List<Ticket> result = userService.getBookedTickets(id);

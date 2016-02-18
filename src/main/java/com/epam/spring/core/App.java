@@ -37,6 +37,9 @@ public class App {
         admin.setRole(UserRole.ADMIN);
         admin.setId(userService.register(admin));
 
+        Integer id = admin.getId();
+        User byId = userService.getById(id);
+
         User client = new User();
         client.setName("client");
         client.setRole(UserRole.CLIENT);
@@ -83,7 +86,7 @@ public class App {
 
         List<Ticket> bookedTickets = bookingService.bookTickets(client, chosenEvent.getId(),
                 new ArrayList<>(Arrays.asList(firstPlace, secondPlace)));
-        client.getTickets().addAll(bookedTickets);
+        //client.getTickets().addAll(bookedTickets);
 
         /*
         * Admin checks sold tickets to prepare event

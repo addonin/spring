@@ -81,7 +81,7 @@ public class SimpleUserDaoTest {
     public void shouldGetUserTickets() throws Exception {
 
         List<Ticket> tickets = new ArrayList<>(Collections.singletonList(new Ticket()));
-        user.setTickets(tickets);
+        //user.setTickets(tickets);
         Integer id = dao.register(user);
 
         List<Ticket> result = dao.getBookedTickets(id);

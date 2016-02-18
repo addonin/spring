@@ -14,7 +14,7 @@ public class TenthTicketDiscountStrategy implements DiscountStrategy {
 
     @Override
     public float calculateDiscount(User user, Event event) {
-        int soldTickets = user.getTickets().size();
+        int soldTickets = 0;//user.getTickets().size();
         return soldTickets > 10 && (soldTickets + 1) % 10 == 0 ? 5 : 0;
     }
 }

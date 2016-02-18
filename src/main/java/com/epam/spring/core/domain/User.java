@@ -2,6 +2,7 @@ package com.epam.spring.core.domain;
 
 import com.epam.spring.core.domain.enums.UserRole;
 
+import javax.persistence.*;
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
@@ -10,13 +11,20 @@ import java.util.List;
  * @author Dmytro_Adonin
  * @since 2/5/2016.
  */
+@Entity
+@Table(name = "USERS")
 public class User {
 
+    @Id
+    @Column(name = "ID")
+    @GeneratedValue
     private Integer id;
     private UserRole role;
     private String name;
     private String email;
+    /*@Temporal(TemporalType.DATE)*/
     private Instant birthday;
+    @ElementCollection
     private List<Ticket> tickets = new ArrayList<>();
     private boolean lucky;
 

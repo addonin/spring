@@ -3,7 +3,9 @@ package com.epam.spring.core.dao.impl;
 import com.epam.spring.core.dao.UserDao;
 import com.epam.spring.core.domain.Ticket;
 import com.epam.spring.core.domain.User;
+import org.hibernate.Criteria;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -25,7 +27,17 @@ public class HibernateUserDao implements UserDao {
     }
 
     @Override
+    public void update(User user) {
+        sessionFactory.getCurrentSession().update(user);
+    }
+
+    @Override
     public boolean remove(Integer userId) {
+        User user = getById(userId);
+        if (user != null) {
+            sessionFactory.getCurrentSession().delete(user);
+            return true;
+        }
         return false;
     }
 
@@ -36,16 +48,21 @@ public class HibernateUserDao implements UserDao {
 
     @Override
     public User getUserByEmail(String email) {
-        return null;
+        //TODO ask about best practice
+        Criteria criteria = sessionFactory.getCurrentSession().createCriteria(User.class);
+        return (User) criteria.add(Restrictions.eq("email", email)).uniqueResult();
     }
 
     @Override
     public List<User> getUserByName(String name) {
-        return null;
+        //TODO ask about best practice
+        Criteria criteria = sessionFactory.getCurrentSession().createCriteria(User.class);
+        return (List<User>) criteria.add(Restrictions.eq("name", name)).list();
     }
 
     @Override
     public List<Ticket> getBookedTickets(Integer userId) {
-        return null;
+        User user = getById(userId);
+        return user != null ? user.getTickets() : null;
     }
 }

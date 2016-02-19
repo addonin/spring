@@ -14,6 +14,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
  */
 @Configuration
 @EnableTransactionManagement
+/*@ComponentScan("com.epam.spring.core.misc.converters")*/
 public class DatabaseApplicationContext {
 
     @Bean

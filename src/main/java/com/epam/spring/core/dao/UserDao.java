@@ -13,6 +13,8 @@ public interface UserDao {
 
     Integer register(User user);
 
+    void update(User user);
+
     boolean remove(Integer userId);
 
     User getById(Integer userId);

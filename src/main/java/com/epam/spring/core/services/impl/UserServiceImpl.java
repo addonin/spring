@@ -29,6 +29,13 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    @Transactional
+    public void update(User user) {
+        userDao.update(user);
+    }
+
+    @Override
+    @Transactional
     public boolean remove(Integer userId) {
         return userDao.remove(userId);
     }
@@ -40,16 +47,19 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    @Transactional
     public User getUserByEmail(String email) {
         return userDao.getUserByEmail(email);
     }
 
     @Override
+    @Transactional
     public List<User> getUsersByName(String name) {
         return userDao.getUserByName(name);
     }
 
     @Override
+    @Transactional
     public List<Ticket> getBookedTickets(Integer userId) {
         return userDao.getBookedTickets(userId);
     }

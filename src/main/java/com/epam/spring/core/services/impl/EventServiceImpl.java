@@ -70,7 +70,7 @@ public class EventServiceImpl implements EventService {
         List<Integer> vipSeats = auditorium.getVipSeats();
         for (int i = 1; i <= seatsNumber; i++) {
             Ticket ticket = new Ticket();
-            ticket.setEventId(currentEvent.getId());
+            ticket.setEvent(currentEvent);
             ticket.setState(TicketState.FREE);
             ticket.setSeat(new Seat(i, vipSeats.contains(i) ? SeatStatus.VIP : SeatStatus.STANDARD));
             tickets.add(ticket);

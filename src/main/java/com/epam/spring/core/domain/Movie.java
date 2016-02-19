@@ -2,14 +2,20 @@ package com.epam.spring.core.domain;
 
 import com.epam.spring.core.domain.enums.MovieRating;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import java.time.Duration;
 
 /**
  * @author Dmytro_Adonin
  * @since 2/8/2016.
  */
+@Entity
 public class Movie {
 
+    @Id
+    @GeneratedValue
     private Integer id;
     private String name;
     private String description;

@@ -31,6 +31,11 @@ public class SimpleUserDao implements UserDao {
     }
 
     @Override
+    public void update(User user) {
+        users.put(user.getId(), user);
+    }
+
+    @Override
     public boolean remove(Integer userId) {
         return users.remove(userId, users.get(userId));
     }

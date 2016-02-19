@@ -58,7 +58,7 @@ public class BookingServiceImpl implements BookingService {
         for (Integer place : places) {
             Set<Ticket> tickets = event.getTickets();
             tickets.stream().filter(ticket -> ticket.getSeat().getNumber() == place).forEach(ticket -> {
-                ticket.setClientId(watcher.getId());
+                ticket.setUser(watcher);
                 ticket.setState(TicketState.SOLD);
                 bookedTickets.add(ticket);
             });

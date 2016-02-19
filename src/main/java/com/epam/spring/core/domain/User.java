@@ -16,15 +16,19 @@ import java.util.List;
 public class User {
 
     @Id
-    @Column(name = "ID")
     @GeneratedValue
+    @Column(name = "ID")
     private Integer id;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "ROLE")
     private UserRole role;
+    @Column(name = "NAME")
     private String name;
+    @Column(name = "EMAIL")
     private String email;
-    /*@Temporal(TemporalType.DATE)*/
+    @Column(name = "BIRTHDAY")
     private Instant birthday;
-    @ElementCollection
+    @OneToMany
     private List<Ticket> tickets = new ArrayList<>();
     private boolean lucky;
 

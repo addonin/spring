@@ -39,6 +39,7 @@ public class App {
 
         Integer id = admin.getId();
         User byId = userService.getById(id);
+        List<User> usersByName = userService.getUsersByName(admin.getName());
 
         User client = new User();
         client.setName("client");
@@ -92,6 +93,8 @@ public class App {
         * Admin checks sold tickets to prepare event
         */
         List<Ticket> ticketsForEvent = bookingService.getSoldTicketsForEvent(eventId);
+        client.setTickets(ticketsForEvent);
+        userService.update(client);
 
     }
 

@@ -2,20 +2,23 @@ package com.epam.spring.core.domain;
 
 import com.epam.spring.core.domain.enums.TicketState;
 
-import javax.persistence.Embeddable;
-import javax.persistence.Embedded;
-import javax.persistence.Entity;
+import javax.persistence.*;
 
 /**
  * @author Dmytro_Adonin
  * @since 2/5/2016.
  */
-@Embeddable
+@Entity
+@Table(name = "TICKETS")
 public class Ticket {
 
+    @Id
+    @GeneratedValue
     private Integer id;
-    private Integer eventId;
-    private Integer clientId;
+    @ManyToOne
+    private Event event;
+    @OneToOne
+    private User user;
     @Embedded
     private Seat seat;
     private TicketState state;
@@ -29,20 +32,20 @@ public class Ticket {
         this.id = id;
     }
 
-    public Integer getEventId() {
-        return eventId;
+    public Event getEvent() {
+        return event;
     }
 
-    public void setEventId(Integer eventId) {
-        this.eventId = eventId;
+    public void setEvent(Event event) {
+        this.event = event;
     }
 
-    public Integer getClientId() {
-        return clientId;
+    public User getUser() {
+        return user;
     }
 
-    public void setClientId(Integer clientId) {
-        this.clientId = clientId;
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public Seat getSeat() {
@@ -77,8 +80,8 @@ public class Ticket {
         Ticket ticket = (Ticket) o;
 
         if (id != null ? !id.equals(ticket.id) : ticket.id != null) return false;
-        if (eventId != null ? !eventId.equals(ticket.eventId) : ticket.eventId != null) return false;
-        if (clientId != null ? !clientId.equals(ticket.clientId) : ticket.clientId != null) return false;
+        if (event != null ? !event.equals(ticket.event) : ticket.event != null) return false;
+        if (user != null ? !user.equals(ticket.user) : ticket.user != null) return false;
         if (seat != null ? !seat.equals(ticket.seat) : ticket.seat != null) return false;
         if (state != ticket.state) return false;
         return price != null ? price.equals(ticket.price) : ticket.price == null;
@@ -88,8 +91,8 @@ public class Ticket {
     @Override
     public int hashCode() {
         int result = id != null ? id.hashCode() : 0;
-        result = 31 * result + (eventId != null ? eventId.hashCode() : 0);
-        result = 31 * result + (clientId != null ? clientId.hashCode() : 0);
+        result = 31 * result + (event != null ? event.hashCode() : 0);
+        result = 31 * result + (user != null ? user.hashCode() : 0);
         result = 31 * result + (seat != null ? seat.hashCode() : 0);
         result = 31 * result + (state != null ? state.hashCode() : 0);
         result = 31 * result + (price != null ? price.hashCode() : 0);

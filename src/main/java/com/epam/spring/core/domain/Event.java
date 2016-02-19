@@ -1,5 +1,6 @@
 package com.epam.spring.core.domain;
 
+import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
@@ -8,16 +9,25 @@ import java.util.Set;
  * @author Dmytro_Adonin
  * @since 2/5/2016.
  */
+@Entity
 public class Event {
 
+    @Id
+    @GeneratedValue
     private Integer id;
+    @OneToOne
     private Movie movie;
+    @Embedded
     private Auditorium auditorium;
     private LocalDateTime startDateTime;
+    @OneToMany
     private Set<Ticket> tickets = new HashSet<>();
 
     public Event(Movie movie) {
         this.movie = movie;
+    }
+
+    public Event() {
     }
 
     public Integer getId() {

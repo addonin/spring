@@ -1,22 +1,29 @@
 package com.epam.spring.core.domain;
 
+import javax.persistence.ElementCollection;
+import javax.persistence.Embeddable;
 import java.util.List;
 
 /**
  * @author Dmytro_Adonin
  * @since 2/5/2016.
  */
+@Embeddable
 public class Auditorium {
 
     private Integer id;
     private String name;
     private Integer seatsNumber;
+    @ElementCollection
     private List<Integer> vipSeats;
 
     public Auditorium(String name, Integer seatsNumber, List<Integer> vipSeats) {
         this.name = name;
         this.seatsNumber = seatsNumber;
         this.vipSeats = vipSeats;
+    }
+
+    public Auditorium() {
     }
 
     public Integer getId() {
@@ -31,12 +38,24 @@ public class Auditorium {
         return name;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public Integer getSeatsNumber() {
         return seatsNumber;
     }
 
+    public void setSeatsNumber(Integer seatsNumber) {
+        this.seatsNumber = seatsNumber;
+    }
+
     public List<Integer> getVipSeats() {
         return vipSeats;
+    }
+
+    public void setVipSeats(List<Integer> vipSeats) {
+        this.vipSeats = vipSeats;
     }
 
     @Override

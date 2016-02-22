@@ -17,16 +17,11 @@ public class User {
 
     @Id
     @GeneratedValue
-    @Column(name = "ID")
     private Integer id;
     @Enumerated(EnumType.STRING)
-    @Column(name = "ROLE")
     private UserRole role;
-    @Column(name = "NAME")
     private String name;
-    @Column(name = "EMAIL")
     private String email;
-    @Column(name = "BIRTHDAY")
     private Instant birthday;
     @OneToMany
     private List<Ticket> tickets = new ArrayList<>();

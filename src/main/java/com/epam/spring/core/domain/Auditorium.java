@@ -1,6 +1,5 @@
 package com.epam.spring.core.domain;
 
-import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.Embeddable;
 import java.util.List;
@@ -12,8 +11,7 @@ import java.util.List;
 @Embeddable
 public class Auditorium {
 
-    @Column(name = "auditoriumId")
-    private Integer id;
+    private Integer auditoriumId;
     private String name;
     private Integer seatsNumber;
     @ElementCollection
@@ -28,12 +26,12 @@ public class Auditorium {
     public Auditorium() {
     }
 
-    public Integer getId() {
-        return id;
+    public Integer getAuditoriumId() {
+        return auditoriumId;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setAuditoriumId(Integer auditoriumId) {
+        this.auditoriumId = auditoriumId;
     }
 
     public String getName() {
@@ -67,7 +65,7 @@ public class Auditorium {
 
         Auditorium that = (Auditorium) o;
 
-        if (id != null ? !id.equals(that.id) : that.id != null) return false;
+        if (auditoriumId != null ? !auditoriumId.equals(that.auditoriumId) : that.auditoriumId != null) return false;
         if (name != null ? !name.equals(that.name) : that.name != null) return false;
         if (seatsNumber != null ? !seatsNumber.equals(that.seatsNumber) : that.seatsNumber != null) return false;
         return vipSeats != null ? vipSeats.equals(that.vipSeats) : that.vipSeats == null;
@@ -76,7 +74,7 @@ public class Auditorium {
 
     @Override
     public int hashCode() {
-        int result = id != null ? id.hashCode() : 0;
+        int result = auditoriumId != null ? auditoriumId.hashCode() : 0;
         result = 31 * result + (name != null ? name.hashCode() : 0);
         result = 31 * result + (seatsNumber != null ? seatsNumber.hashCode() : 0);
         result = 31 * result + (vipSeats != null ? vipSeats.hashCode() : 0);

@@ -37,10 +37,6 @@ public class App {
         admin.setRole(UserRole.ADMIN);
         admin.setId(userService.register(admin));
 
-        Integer id = admin.getId();
-        User byId = userService.getById(id);
-        List<User> usersByName = userService.getUsersByName(admin.getName());
-
         User client = new User();
         client.setName("client");
         client.setRole(UserRole.CLIENT);
@@ -74,8 +70,8 @@ public class App {
 
         //client choosing the places
         Auditorium chosenEventAuditorium = chosenEvent.getAuditorium();
-        Integer seatsNumber = auditoriumService.getSeatsNumber(chosenEventAuditorium.getId());
-        List<Integer> vipSeats = auditoriumService.getVipSeats(chosenEventAuditorium.getId());
+        Integer seatsNumber = auditoriumService.getSeatsNumber(chosenEventAuditorium.getAuditoriumId());
+        List<Integer> vipSeats = auditoriumService.getVipSeats(chosenEventAuditorium.getAuditoriumId());
         int firstPlace = 10; // standard
         int secondPlace = 11; // VIP
 

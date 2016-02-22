@@ -5,8 +5,10 @@ import com.epam.spring.core.domain.Auditorium;
 import com.epam.spring.core.services.AuditoriumService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Set;
 
 /**
  * @author Dmytro_Adonin
@@ -19,16 +21,19 @@ public class AuditoriumServiceImpl implements AuditoriumService {
     private AuditoriumDao auditoriumDao;
 
     @Override
+    @Transactional
     public List<Auditorium> getAuditoriums() {
         return auditoriumDao.getAuditoriums();
     }
 
     @Override
+    @Transactional
     public Integer getSeatsNumber(Integer auditoriumId) {
         return auditoriumDao.getSeatsNumber(auditoriumId);
     }
 
     @Override
+    @Transactional
     public List<Integer> getVipSeats(Integer auditoriumId) {
         return auditoriumDao.getVipSeats(auditoriumId);
     }

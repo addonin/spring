@@ -11,10 +11,10 @@ import com.epam.spring.core.services.DiscountService;
 import com.epam.spring.core.services.EventService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 import java.util.stream.Collectors;
 
 /**
@@ -34,6 +34,7 @@ public class BookingServiceImpl implements BookingService {
     private BookingDao bookingDao;
 
     @Override
+    @Transactional
     public float getTicketPrice(User watcher, Integer eventId, Integer seat) {
         float total = 0;
         Event event = eventService.getById(eventId);
@@ -52,20 +53,25 @@ public class BookingServiceImpl implements BookingService {
         return total;
     }
 
+    @Override
+    @Transactional
     public List<Ticket> bookTickets(User watcher, Integer eventId, List<Integer> places) {
         List<Ticket> bookedTickets = new ArrayList<>();
         Event event = eventService.getById(eventId);
         for (Integer place : places) {
-            Set<Ticket> tickets = event.getTickets();
+            List<Ticket> tickets = event.getTickets();
             tickets.stream().filter(ticket -> ticket.getSeat().getNumber() == place).forEach(ticket -> {
                 ticket.setUser(watcher);
                 ticket.setState(TicketState.SOLD);
+                bookingDao.update(ticket);
                 bookedTickets.add(ticket);
             });
         }
         return bookedTickets;
     }
 
+    @Override
+    @Transactional
     public List<Ticket> getSoldTicketsForEvent(Integer eventId) {
         return eventService.getById(eventId).getTickets().stream()
                 .filter(ticket -> ticket.getState() == TicketState.SOLD)

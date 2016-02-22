@@ -9,7 +9,6 @@ import javax.persistence.*;
  * @since 2/5/2016.
  */
 @Entity
-@Table(name = "TICKETS")
 public class Ticket {
 
     @Id

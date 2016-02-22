@@ -36,6 +36,10 @@ public class SimpleEventDao implements EventDao {
     }
 
     @Override
+    public void update(Event event) {
+    }
+
+    @Override
     public Event getById(Integer eventId) {
         return events.get(eventId);
     }

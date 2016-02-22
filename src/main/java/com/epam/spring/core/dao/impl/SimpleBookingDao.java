@@ -1,6 +1,5 @@
 package com.epam.spring.core.dao.impl;
 
-import com.epam.spring.core.dao.BookingDao;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -8,5 +7,5 @@ import org.springframework.stereotype.Repository;
  * @since 2/5/2016.
  */
 @Repository
-public class SimpleBookingDao implements BookingDao {
+public class SimpleBookingDao {
 }

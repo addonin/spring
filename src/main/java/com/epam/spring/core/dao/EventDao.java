@@ -15,6 +15,8 @@ public interface EventDao {
 
     boolean remove(Integer eventId);
 
+    void update(Event event);
+
     Event getById(Integer eventId);
 
     List<Event> getAll();

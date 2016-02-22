@@ -11,7 +11,6 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.util.ReflectionTestUtils;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -32,7 +31,7 @@ public class AuditoriumServiceImplTest {
     public void shouldReturnAuditoriums() throws Exception {
 
         List<Auditorium> auditoriums =
-                new ArrayList<>(Collections.singletonList(new Auditorium("name", 10, Arrays.asList(1, 2, 3))));
+                new ArrayList<>(Collections.singletonList(new Auditorium("name", 10, null/*Arrays.asList(1, 2, 3)*/)));
         ReflectionTestUtils.setField(auditoriumService, "auditoriums", auditoriums);
 
         List<Auditorium> result = auditoriumService.getAuditoriums();

@@ -2,8 +2,8 @@ package com.epam.spring.core.domain;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author Dmytro_Adonin
@@ -20,8 +20,8 @@ public class Event {
     @Embedded
     private Auditorium auditorium;
     private LocalDateTime startDateTime;
-    @OneToMany
-    private Set<Ticket> tickets = new HashSet<>();
+    @OneToMany(fetch = FetchType.EAGER)
+    private List<Ticket> tickets = new ArrayList<>();
 
     public Event(Movie movie) {
         this.movie = movie;
@@ -62,11 +62,11 @@ public class Event {
         this.startDateTime = startDateTime;
     }
 
-    public Set<Ticket> getTickets() {
+    public List<Ticket> getTickets() {
         return tickets;
     }
 
-    public void setTickets(Set<Ticket> tickets) {
+    public void setTickets(List<Ticket> tickets) {
         this.tickets = tickets;
     }
 

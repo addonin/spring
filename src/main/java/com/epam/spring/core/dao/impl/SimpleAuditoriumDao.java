@@ -9,6 +9,7 @@ import javax.annotation.PostConstruct;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 /**
  * @author Dmytro_Adonin
@@ -28,7 +29,7 @@ public class SimpleAuditoriumDao implements AuditoriumDao {
     public void init() {
         auditoriumList.stream().forEach(item -> {
             int id = generateId();
-            item.setId(id);
+            item.setAuditoriumId(id);
             auditoriumMap.put(id, item);
         });
     }

@@ -24,6 +24,8 @@
     <mapping class="com.epam.spring.core.domain.Ticket"/>
     <mapping class="com.epam.spring.core.domain.Event"/>
     <mapping class="com.epam.spring.core.domain.Movie"/>
+    <mapping class="com.epam.spring.core.domain.Auditorium"/>
+    <mapping class="com.epam.spring.core.domain.Seat"/>
 
   </session-factory>
 </hibernate-configuration>

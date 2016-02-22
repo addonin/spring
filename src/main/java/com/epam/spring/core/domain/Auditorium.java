@@ -1,5 +1,6 @@
 package com.epam.spring.core.domain;
 
+import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.Embeddable;
 import java.util.List;
@@ -11,6 +12,7 @@ import java.util.List;
 @Embeddable
 public class Auditorium {
 
+    @Column(name = "auditoriumId")
     private Integer id;
     private String name;
     private Integer seatsNumber;

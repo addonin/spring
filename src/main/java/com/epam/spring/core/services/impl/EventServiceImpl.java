@@ -85,10 +85,11 @@ public class EventServiceImpl implements EventService {
             ticket.setEvent(currentEvent);
             ticket.setState(TicketState.FREE);
             ticket.setSeat(new Seat(i, vipSeats.contains(i) ? SeatStatus.VIP : SeatStatus.STANDARD));
-            bookingDao.create(ticket);
             tickets.add(ticket);
+            bookingDao.create(ticket);
             //eventDao.update(currentEvent);
         }
+
     }
 
 }

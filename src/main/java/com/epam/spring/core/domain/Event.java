@@ -20,7 +20,7 @@ public class Event {
     @Embedded
     private Auditorium auditorium;
     private LocalDateTime startDateTime;
-    @OneToMany(fetch = FetchType.EAGER)
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "event")
     private List<Ticket> tickets = new ArrayList<>();
 
     public Event(Movie movie) {

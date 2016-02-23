@@ -27,7 +27,7 @@ public class HibernateEventDao implements EventDao {
 
     @Override
     public void update(Event event) {
-        sessionFactory.getCurrentSession().update(event);
+        sessionFactory.getCurrentSession().merge(event);
     }
 
     @Override

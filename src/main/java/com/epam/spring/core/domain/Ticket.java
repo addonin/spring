@@ -14,7 +14,7 @@ public class Ticket {
     @Id
     @GeneratedValue
     private Integer id;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL, targetEntity = Event.class)
     private Event event;
     @OneToOne
     private User user;

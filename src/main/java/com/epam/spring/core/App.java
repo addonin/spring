@@ -1,7 +1,7 @@
 package com.epam.spring.core;
 
 import com.epam.spring.core.context.CoreApplicationContext;
-import com.epam.spring.core.domain.*;
+import com.epam.spring.core.domain.entities.*;
 import com.epam.spring.core.domain.enums.MovieRating;
 import com.epam.spring.core.domain.enums.UserRole;
 import com.epam.spring.core.services.AuditoriumService;

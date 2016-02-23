@@ -1,7 +1,7 @@
 package com.epam.spring.core.services.impl;
 
-import com.epam.spring.core.domain.Event;
-import com.epam.spring.core.domain.User;
+import com.epam.spring.core.domain.entities.Event;
+import com.epam.spring.core.domain.entities.User;
 import com.epam.spring.core.misc.strategies.DiscountStrategy;
 import com.epam.spring.core.services.DiscountService;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,6 +1,6 @@
 package com.epam.spring.core.services;
 
-import com.epam.spring.core.domain.Auditorium;
+import com.epam.spring.core.domain.entities.Auditorium;
 
 import java.util.List;
 

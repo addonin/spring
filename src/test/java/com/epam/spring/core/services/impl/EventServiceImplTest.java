@@ -2,8 +2,8 @@ package com.epam.spring.core.services.impl;
 
 import com.epam.spring.core.context.TestCoreApplicationContext;
 import com.epam.spring.core.dao.EventDao;
-import com.epam.spring.core.domain.Event;
-import com.epam.spring.core.domain.Movie;
+import com.epam.spring.core.domain.entities.Event;
+import com.epam.spring.core.domain.entities.Movie;
 import com.epam.spring.core.domain.enums.MovieRating;
 import org.junit.Before;
 import org.junit.Test;

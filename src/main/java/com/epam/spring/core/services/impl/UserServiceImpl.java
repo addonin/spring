@@ -1,8 +1,8 @@
 package com.epam.spring.core.services.impl;
 
 import com.epam.spring.core.dao.UserDao;
-import com.epam.spring.core.domain.Ticket;
-import com.epam.spring.core.domain.User;
+import com.epam.spring.core.domain.entities.Ticket;
+import com.epam.spring.core.domain.entities.User;
 import com.epam.spring.core.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;

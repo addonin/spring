@@ -1,7 +1,7 @@
 package com.epam.spring.core.dao.impl;
 
 import com.epam.spring.core.dao.BookingDao;
-import com.epam.spring.core.domain.Ticket;
+import com.epam.spring.core.domain.entities.Ticket;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;

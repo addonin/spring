@@ -14,7 +14,7 @@ public class ExceptionHandlingAdvice {
     @ExceptionHandler(Exception.class)
     public ModelAndView handleException(Exception e) {
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.addObject("message", e.getMessage());
+        modelAndView.addObject("message", "ERROR: " + e.getMessage());
         modelAndView.setViewName("exception");
         return modelAndView;
     }

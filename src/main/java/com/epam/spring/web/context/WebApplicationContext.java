@@ -17,7 +17,7 @@ import java.io.IOException;
  */
 @Configuration
 @EnableWebMvc
-@ComponentScan("com.epam.spring.web.controllers")
+@ComponentScan({"com.epam.spring.web.controllers", "com.epam.spring.web.aop"})
 public class WebApplicationContext extends WebMvcConfigurerAdapter {
 
     @Override

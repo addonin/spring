@@ -5,8 +5,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.epam.spring</groupId>
-    <artifactId>com.epam.spring.core</artifactId>
+    <artifactId>com.epam.spring.advanced</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <packaging>war</packaging>
 
     <properties>
         <spring.ver>4.2.4.RELEASE</spring.ver>
@@ -15,9 +16,14 @@
         <aspectj.ver>1.8.6</aspectj.ver>
         <hibernate.ver>5.1.0.Final</hibernate.ver>
         <h2.ver>1.4.191</h2.ver>
+        <velocity.ver>1.7</velocity.ver>
+        <velocity-tools.ver>2.0</velocity-tools.ver>
+        <maven-war-plugin.ver>2.4</maven-war-plugin.ver>
     </properties>
 
     <dependencies>
+
+        <!-- SPRING -->
 
         <dependency>
             <groupId>org.springframework</groupId>
@@ -53,6 +59,32 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-orm</artifactId>
             <version>${spring.ver}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+            <version>${spring.ver}</version>
+        </dependency>
+
+        <!-- WEB -->
+
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>3.0.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.velocity</groupId>
+            <artifactId>velocity</artifactId>
+            <version>${velocity.ver}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.velocity</groupId>
+            <artifactId>velocity-tools</artifactId>
+            <version>${velocity-tools.ver}</version>
         </dependency>
 
         <!-- TESTING -->
@@ -101,6 +133,14 @@
             <version>${hibernate.ver}</version>
         </dependency>
 
+        <!--COMMON -->
+
+        <dependency>
+			<groupId>dom4j</groupId>
+			<artifactId>dom4j</artifactId>
+			<version>1.6.1</version>
+		</dependency>
+
     </dependencies>
 
     <build>
@@ -111,6 +151,13 @@
                 <configuration>
                     <source>1.8</source>
                     <target>1.8</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>${maven-war-plugin.ver}</version>
+                <configuration>
+                    <failOnMissingWebXml>false</failOnMissingWebXml>
                 </configuration>
             </plugin>
         </plugins>

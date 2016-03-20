@@ -1,6 +1,6 @@
 package com.epam.spring.core.dao;
 
-import com.epam.spring.core.domain.Ticket;
+import com.epam.spring.core.domain.entities.Ticket;
 
 /**
  * @author Dmytro_Adonin

@@ -1,7 +1,7 @@
 package com.epam.spring.core.services;
 
-import com.epam.spring.core.domain.Ticket;
-import com.epam.spring.core.domain.User;
+import com.epam.spring.core.domain.entities.Ticket;
+import com.epam.spring.core.domain.entities.User;
 
 import java.util.List;
 

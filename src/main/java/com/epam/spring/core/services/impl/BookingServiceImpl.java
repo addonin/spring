@@ -1,9 +1,9 @@
 package com.epam.spring.core.services.impl;
 
 import com.epam.spring.core.dao.BookingDao;
-import com.epam.spring.core.domain.Event;
-import com.epam.spring.core.domain.Ticket;
-import com.epam.spring.core.domain.User;
+import com.epam.spring.core.domain.entities.Event;
+import com.epam.spring.core.domain.entities.Ticket;
+import com.epam.spring.core.domain.entities.User;
 import com.epam.spring.core.domain.enums.MovieRating;
 import com.epam.spring.core.domain.enums.TicketState;
 import com.epam.spring.core.services.BookingService;

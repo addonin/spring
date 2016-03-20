@@ -1,4 +1,4 @@
-package com.epam.spring.core.domain;
+package com.epam.spring.core.domain.entities;
 
 import javax.persistence.ElementCollection;
 import javax.persistence.Embeddable;

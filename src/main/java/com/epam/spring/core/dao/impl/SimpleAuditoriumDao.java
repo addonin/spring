@@ -1,7 +1,7 @@
 package com.epam.spring.core.dao.impl;
 
 import com.epam.spring.core.dao.AuditoriumDao;
-import com.epam.spring.core.domain.Auditorium;
+import com.epam.spring.core.domain.entities.Auditorium;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -9,7 +9,6 @@ import javax.annotation.PostConstruct;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 /**
  * @author Dmytro_Adonin

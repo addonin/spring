@@ -1,7 +1,7 @@
 package com.epam.spring.core.aop;
 
-import com.epam.spring.core.domain.Ticket;
-import com.epam.spring.core.domain.User;
+import com.epam.spring.core.domain.entities.Ticket;
+import com.epam.spring.core.domain.entities.User;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.Aspect;
@@ -23,7 +23,7 @@ public class LuckyWinnerAspect {
 
     private Random random = new Random();
 
-    @Pointcut("execution(java.util.List<com.epam.spring.core.domain.Ticket> com.epam.spring.core.services.BookingService+.bookTickets(com.epam.spring.core.domain.User, Integer, java.util.List<Integer>))")
+    @Pointcut("execution(java.util.List<com.epam.spring.core.domain.entities.Ticket> com.epam.spring.core.services.BookingService+.bookTickets(com.epam.spring.core.domain.entities.User, Integer, java.util.List<Integer>))")
     private void bookingTickets() {}
 
     @AfterReturning(pointcut = "bookingTickets()", returning = "retVal")

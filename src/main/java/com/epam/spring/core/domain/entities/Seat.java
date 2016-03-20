@@ -1,4 +1,4 @@
-package com.epam.spring.core.domain;
+package com.epam.spring.core.domain.entities;
 
 import com.epam.spring.core.domain.enums.SeatStatus;
 

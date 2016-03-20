@@ -1,8 +1,8 @@
 package com.epam.spring.core.dao.impl;
 
 import com.epam.spring.core.dao.UserDao;
-import com.epam.spring.core.domain.Ticket;
-import com.epam.spring.core.domain.User;
+import com.epam.spring.core.domain.entities.Ticket;
+import com.epam.spring.core.domain.entities.User;
 import org.springframework.stereotype.Repository;
 
 import java.util.HashMap;

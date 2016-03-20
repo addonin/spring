@@ -1,10 +1,13 @@
 package com.epam.spring.core.aop;
 
-import com.epam.spring.core.domain.User;
+import com.epam.spring.core.domain.entities.User;
+import com.epam.spring.core.domain.stats.DiscountsPerUserStats;
+import com.epam.spring.core.services.StatsService;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.HashMap;
@@ -22,7 +25,10 @@ public class DiscountAspect {
 
     private Map<Integer, Integer> discountTimesPerUserStatistics = new HashMap<>();
 
-    @Pointcut("execution(float com.epam.spring.core.misc.strategies.DiscountStrategy+.calculateDiscount(com.epam.spring.core.domain.User, com.epam.spring.core.domain.Event))")
+    @Autowired
+    private StatsService statsService;
+
+    @Pointcut("execution(float com.epam.spring.core.misc.strategies.DiscountStrategy+.calculateDiscount(com.epam.spring.core.domain.entities.User, com.epam.spring.core.domain.entities.Event))")
     private void calculatingDiscount() {}
 
     @AfterReturning(pointcut = "calculatingDiscount()", returning = "retVal")
@@ -32,8 +38,14 @@ public class DiscountAspect {
         if (discount > 0 && user != null) {
             total++;
             Integer userId = user.getId();
-            Integer currentCounterValue = discountTimesPerUserStatistics.get(userId);
-            discountTimesPerUserStatistics.put(userId, currentCounterValue == null ? 1 : currentCounterValue + 1);
+            //Integer currentCounterValue = discountTimesPerUserStatistics.get(userId);
+            //discountTimesPerUserStatistics.put(userId, currentCounterValue == null ? 1 : currentCounterValue + 1);
+            DiscountsPerUserStats discountsPerUserStats = statsService.getDiscountsPerUserStats(userId);
+            if (discountsPerUserStats == null) {
+                statsService.createDicountsPerUserCounter(userId);
+            } else {
+                statsService.updateDicountsPerUserCounter(userId);
+            }
         }
     }
 

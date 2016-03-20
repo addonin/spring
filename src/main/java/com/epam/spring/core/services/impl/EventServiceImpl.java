@@ -2,7 +2,7 @@ package com.epam.spring.core.services.impl;
 
 import com.epam.spring.core.dao.BookingDao;
 import com.epam.spring.core.dao.EventDao;
-import com.epam.spring.core.domain.*;
+import com.epam.spring.core.domain.entities.*;
 import com.epam.spring.core.domain.enums.SeatStatus;
 import com.epam.spring.core.domain.enums.TicketState;
 import com.epam.spring.core.services.EventService;

@@ -1,7 +1,7 @@
 package com.epam.spring.core.services.impl;
 
 import com.epam.spring.core.context.TestCoreApplicationContext;
-import com.epam.spring.core.domain.Auditorium;
+import com.epam.spring.core.domain.entities.Auditorium;
 import com.epam.spring.core.services.AuditoriumService;
 import org.junit.Ignore;
 import org.junit.Test;

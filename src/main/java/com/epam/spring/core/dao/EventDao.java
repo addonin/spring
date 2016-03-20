@@ -1,7 +1,7 @@
 package com.epam.spring.core.dao;
 
-import com.epam.spring.core.domain.Event;
-import com.epam.spring.core.domain.Movie;
+import com.epam.spring.core.domain.entities.Event;
+import com.epam.spring.core.domain.entities.Movie;
 
 import java.util.List;
 

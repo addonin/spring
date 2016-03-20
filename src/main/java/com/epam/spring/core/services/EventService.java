@@ -1,8 +1,8 @@
 package com.epam.spring.core.services;
 
-import com.epam.spring.core.domain.Auditorium;
-import com.epam.spring.core.domain.Event;
-import com.epam.spring.core.domain.Movie;
+import com.epam.spring.core.domain.entities.Auditorium;
+import com.epam.spring.core.domain.entities.Event;
+import com.epam.spring.core.domain.entities.Movie;
 
 import java.time.LocalDateTime;
 import java.util.List;

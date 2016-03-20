@@ -20,12 +20,16 @@
     <property name="hibernate.c3p0.max_statements">50</property>
     <property name="hibernate.c3p0.idle_test_period">3000</property>
 
-    <mapping class="com.epam.spring.core.domain.User"/>
-    <mapping class="com.epam.spring.core.domain.Ticket"/>
-    <mapping class="com.epam.spring.core.domain.Event"/>
-    <mapping class="com.epam.spring.core.domain.Movie"/>
-    <mapping class="com.epam.spring.core.domain.Auditorium"/>
-    <mapping class="com.epam.spring.core.domain.Seat"/>
+    <mapping class="com.epam.spring.core.domain.entities.User"/>
+    <mapping class="com.epam.spring.core.domain.entities.Ticket"/>
+    <mapping class="com.epam.spring.core.domain.entities.Event"/>
+    <mapping class="com.epam.spring.core.domain.entities.Movie"/>
+    <mapping class="com.epam.spring.core.domain.entities.Auditorium"/>
+    <mapping class="com.epam.spring.core.domain.entities.Seat"/>
+    <mapping class="com.epam.spring.core.domain.stats.GettingEventsStats"/>
+    <mapping class="com.epam.spring.core.domain.stats.GettingTicketPriceStats"/>
+    <mapping class="com.epam.spring.core.domain.stats.BookingTicketsStats"/>
+    <mapping class="com.epam.spring.core.domain.stats.DiscountsPerUserStats"/>
 
   </session-factory>
 </hibernate-configuration>
